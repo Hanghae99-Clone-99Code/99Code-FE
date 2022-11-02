@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import React from 'react';
 import styles from './Join.module.css';
-export default function Join() {
+
+export default function Join({ setInSignup }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +12,7 @@ export default function Join() {
   const register = () => {
     axios
       .post(
-        'http://13.124.142.195/api/members/signup',
+        'https://code99-dev.pyuri.dev/api/members/signup',
         {
           nickname: name,
           email: email,
@@ -23,9 +24,9 @@ export default function Join() {
         }
       )
       .then((response) => {
-        localStorage.setItem('token', response.data.jwt);
+        sessionStorage.setItem('token', response.data.jwt);
         alert('회원가입에 성공했습니다.');
-        console.log('User profile', response.data.jwt);
+        setInSignup(false);
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -36,7 +37,7 @@ export default function Join() {
   const nickNameCheck = () => {
     axios
       .post(
-        'http://13.124.142.195/api/members/check/nick',
+        'https://code99-dev.pyuri.dev/api/members/check/nick',
         {
           nickname: name,
         },
@@ -45,7 +46,7 @@ export default function Join() {
         }
       )
       .then((response) => {
-        localStorage.setItem('token', response.data.jwt);
+        sessionStorage.setItem('token', response.data.jwt);
 
         if (response.data.success === true) {
           return alert('사용할 수 있는 닉네임입니다.');
@@ -64,7 +65,7 @@ export default function Join() {
   const emailCheck = () => {
     axios
       .post(
-        'http://13.124.142.195/api/members/check/email',
+        'https://code99-dev.pyuri.dev/api/members/check/email',
         {
           email: email,
         },
@@ -73,7 +74,7 @@ export default function Join() {
         }
       )
       .then((response) => {
-        localStorage.setItem('token', response.data.jwt);
+        sessionStorage.setItem('token', response.data.jwt);
         if (response.data.success === true) {
           return alert('사용할 수 있는 이메일입니다.');
         } else {
@@ -88,15 +89,14 @@ export default function Join() {
 
   const nameOnChangeHandler = (e) => {
     setName(e.target.value);
-    console.log('이름', e.target.value);
   };
 
   const nameChekOnClickHandler = () => {
     nickNameCheck();
   };
+
   const emailOnChangeHandler = (e) => {
     setEmail(e.target.value);
-    console.log('메일', e.target.value);
   };
 
   const emailChekOnClickHandler = () => {
@@ -104,12 +104,10 @@ export default function Join() {
   };
   const passwordOnChangeHandler = (e) => {
     setPassword(e.target.value);
-    console.log('비밀번호', e.target.value);
   };
 
   const passwordCheckOnChangeHandler = (e) => {
     setPasswordChck(e.target.value);
-    console.log('비밀번호확인', e.target.value);
   };
 
   const joinOnClickHandler = () => {
@@ -121,11 +119,11 @@ export default function Join() {
       <div className={styles.container}>
         <div className={styles.box}>
           <h3 className={styles.joinText}>회원가입</h3>
-          <div>
+          
             <p className={styles.text}>이름</p>
             <input
               className={styles.input}
-              placeholder="이름을 입력하세요"
+              placeholder='이름을 입력하세요'
               type={name}
               onChange={nameOnChangeHandler}
             />
@@ -135,7 +133,7 @@ export default function Join() {
             <p className={styles.text}>이메일</p>
             <input
               className={styles.input}
-              placeholder="이메일을 입력하세요"
+              placeholder='이메일을 입력하세요'
               type={email}
               onChange={emailOnChangeHandler}
             />
@@ -145,18 +143,18 @@ export default function Join() {
             <p className={styles.text}>비밀번호</p>
             <input
               className={styles.passwordInput}
-              placeholder="비밀번호를 입력하세요"
-              type="password"
+              placeholder='비밀번호를 입력하세요'
+              type='password'
               onChange={passwordOnChangeHandler}
             />
             <p className={styles.text}>비밀번호 확인</p>
             <input
               className={styles.passwordInput}
-              placeholder="비밀번호 확인"
-              type="password"
+              placeholder='비밀번호 확인'
+              type='password'
               onChange={passwordCheckOnChangeHandler}
             />
-          </div>
+          
           <button className={styles.joinBtn} onClick={joinOnClickHandler}>
             SIGN UP
           </button>

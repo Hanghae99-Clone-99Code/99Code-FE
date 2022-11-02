@@ -5,10 +5,12 @@ import React from 'react';
 import MenuList from '../../components/common/layout/menuList/MenuList';
 import MyPage from '../../components/myPage/MyPage';
 import Option from '../../components/option/Option';
+
 export default function MainPage() {
   return (
     <>
       <Option></Option>
+
       <MyPage></MyPage>
     </>
   );

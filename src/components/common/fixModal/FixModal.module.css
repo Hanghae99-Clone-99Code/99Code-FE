@@ -1,0 +1,64 @@
+.fixModalBox {
+  width: 600px;
+  height: 800px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--color-light-white);
+  border-radius: 20px;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  margin-top: 40px;
+  margin-left: 225px;
+  border-radius: 80px;
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.imgBtn {
+  width: 80px;
+  height: 20px;
+  background-color: var(--color-bg);
+  margin-top: 10px;
+  margin-left: 265px;
+  border-radius: 5px;
+}
+
+.fixText {
+  margin-top: 50px;
+  margin-left: 95px;
+}
+
+.nameInput {
+  width: 400px;
+  margin-top: 1%;
+  margin-left: 95px;
+}
+.textInput {
+  width: 400px;
+  margin-top: 1%;
+  height: 290px;
+  margin-left: 95px;
+  text-align: start;
+}
+
+.fixBtn {
+  width: 90px;
+  height: 25px;
+  background-color: var(--color-bg);
+  margin-top: 8px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.btnBox {
+  display: flex;
+  margin-left: 190px;
+  margin-top: 30px;
+}

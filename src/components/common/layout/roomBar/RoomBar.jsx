@@ -3,9 +3,12 @@ import styles from './RoomBar.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import instance from '../../../../shared/Request';
 import useInput from '../../../../hooks/useInput';
-import { __getChannels } from '../../../../redux/modules/ChatSlice';
+import {
+  __createChannel,
+  __getChannels,
+} from '../../../../redux/modules/ChatSlice';
 import { TabContext } from '../../../../context/TabContext ';
 
 export default function RoomBar() {
@@ -35,8 +38,35 @@ export default function RoomBar() {
     setModalOpen((prev) => !prev);
     setFileImage('');
   };
-  const onSubmitHandler = (e) => {
+
+  const imgInput = document.querySelector(`#choosePhoto`);
+  const formData = new FormData();
+
+  const formDataHandler = async () => {
+    //console.log(imgInput.files[0]);
+    formData.append('file', imgInput.files[0]);
+    const uploader = { channelName: channelInput };
+    const uploaderString = JSON.stringify(uploader);
+    formData.append(
+      'uploader',
+      new Blob([uploaderString], {
+        type: 'application/json',
+      })
+    );
+  };
+
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
+    if (!imgInput.files[0] || !channelInput) return;
+
+    await formDataHandler();
+
+    //console.log(formData);
+    instance.defaults.headers.post['Authorization'] = authorization;
+    instance.defaults.headers.post['Refresh-token'] = refresh_token;
+    instance.post('/api/room', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
     setChannelInput('');
     toggleModal();
   };

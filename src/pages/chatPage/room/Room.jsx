@@ -25,7 +25,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Room({ roomId }) {
   const { stompClient } = useContext(StompContext);
   const { isUserDisplay } = useContext(UserDisplayContext);
-  const { tab, setTab } = useContext(TabContext);
+  const { setTab } = useContext(TabContext);
 
   const user = JSON.parse(sessionStorage.getItem('User'));
   const authorization = sessionStorage.getItem('Authorization');
@@ -256,16 +256,28 @@ export default function Room({ roomId }) {
           className={styles.user}
           style={{ width: isUserDisplay ? '170px' : '0px' }}
         >
-          <span className={styles.userListText}>온라인 - 0</span>
+          <span className={styles.userListText}>
+            온라인 - {channel.data.onlineUser}
+          </span>
           <ul>
             {channel.data.memberList &&
               channel.data.memberList.map((user) => {
-                return <User key={user.memberId} user={user} />;
+                //console.log(channel);
+                if (user.status)
+                  return <User key={user.memberId} user={user} />;
               })}
           </ul>
 
-          <span className={styles.userListText}>오프라인 - 0</span>
-          <ul>{/* <User /> */}</ul>
+          <span className={styles.userListText}>
+            오프라인 - {channel.data.offlineUser}
+          </span>
+          <ul>
+            {channel.data.memberList &&
+              channel.data.memberList.map((user) => {
+                if (!user.status)
+                  return <User key={user.memberId} user={user} />;
+              })}
+          </ul>
         </div>
       </div>
     </section>

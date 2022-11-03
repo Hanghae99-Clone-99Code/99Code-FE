@@ -95,7 +95,7 @@ export const loginSlice = createSlice({
       state.user.data = {};
       state.user.authorization = null;
       state.user.refresh_token = null;
-      //window.location.reload();
+      window.location.reload();
     },
     [__memberLogout.rejected]: (state, action) => {
       state.user.isLoading = false;

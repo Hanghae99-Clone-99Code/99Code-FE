@@ -84,7 +84,7 @@ export const loginSlice = createSlice({
     },
     [__memberLogin.rejected]: (state, action) => {
       state.user.isLoading = false;
-      state.error = action.payload;
+      state.user.error = action.payload;
     },
     [__memberLogout.pending]: (state) => {
       state.user.isLoading = true;
@@ -95,11 +95,11 @@ export const loginSlice = createSlice({
       state.user.data = {};
       state.user.authorization = null;
       state.user.refresh_token = null;
-      window.location.reload();
+      //window.location.reload();
     },
     [__memberLogout.rejected]: (state, action) => {
       state.user.isLoading = false;
-      state.error = action.payload;
+      //state.user.error = action.payload;
     },
   },
 });

@@ -1,6 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import instance from '../../shared/Request';
 
+//TODO: 채널 나가기
+export const __exitChannel = createAsyncThunk(
+  'EXIT_CHANNEL',
+  async (arg, thunkAPI) => {
+    try {
+      //console.log(arg.authorization, arg.refresh_token, arg.roomId);
+      instance.defaults.headers.delete['Authorization'] = arg.authorization;
+      instance.defaults.headers.delete['Refresh-token'] = arg.refresh_token;
+      await instance.delete(`/api/room/${arg.roomId}`);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.code);
+    }
+  }
+);
+
 //TODO: 토큰과 채널정보 {description, imageUrl, roomName} 넘겨주고 채널 생성하기
 export const __createChannel = createAsyncThunk(
   'CREATE_CHANNEL',

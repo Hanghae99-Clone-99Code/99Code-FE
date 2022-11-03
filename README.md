@@ -1,17 +1,37 @@
-# 99cord - Discord Clone Coding
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=99cord&fontSize=90)
 
-<img src="https://img.shields.io/badge/React-61DAFB?
-          style=for-the-badge&logo=React&logoColor=white"/>
-<img src="https://img.shields.io/badge/Redux Toolkit-764ABC?
-          style=for-the-badge&logo=Redux&logoColor=white"/>
-<img src="https://img.shields.io/badge/React Router-CA4245?
-          style=for-the-badge&logo=React Router&logoColor=white"/>
+# 프로젝트 제목
 
-<img src="https://img.shields.io/badge/Axios-5A29E4?
-          style=for-the-badge&logo=Axios&logoColor=white"/>
-<img src="https://img.shields.io/badge/Lodash-3492FF?
-          style=for-the-badge&logo=Lodash&logoColor=white"/>
-<img src="https://img.shields.io/badge/Font Awesome-528DD7?
-          style=for-the-badge&logo=Font Awesome&logoColor=white"/>
+99cord - 디스코드 클론코딩 프로젝트
 
-Web Socket - SockJs-Client, StompJS
+## 시작하기
+
+create-react-app
+
+### 사용한 라이브러리
+
+```
+Redux-Toolkit
+- yarn add react-redux @reduxjs/toolkit
+React-Router-Dom
+- yarn add react-router-dom
+
+SockJS-Client
+- yarn add sockjs-client
+StompJS
+- yarn add stompjs
+
+Axios
+- yarn add axios
+Lodash
+- yarn add lodash
+
+FontAwesome
+- yarn add @fortawesome/fontawesome-free
+- import '@fortawesome/fontawesome-free/js/all.js' in index.js
+```
+
+## 배포
+
+AWS Amplify 통해 자동배포 중 입니다.
+https://main.d3c4xda10t323b.amplifyapp.com/

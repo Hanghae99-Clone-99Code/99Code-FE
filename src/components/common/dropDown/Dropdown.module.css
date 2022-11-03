@@ -1,0 +1,12 @@
+.dropdown {
+  position: absolute;
+  background-color: var(--color-light-black);
+  border-radius: 5px;
+  color: var(--color-white);
+
+  width: 230px;
+
+  top: 95px;
+  left: 90px;
+  z-index: 300;
+}

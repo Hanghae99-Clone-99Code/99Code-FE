@@ -1,8 +1,5 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=99cord&fontSize=90)
 
-<img src="https://img.shields.io/badge/React-61DAFB?
-          style=for-the-badge&logo=React&logoColor=white"/>
-
 # 프로젝트 제목
 
 99cord - 디스코드 클론코딩 프로젝트

@@ -69,6 +69,10 @@ export default function RoomBar() {
     });
     setChannelInput('');
     toggleModal();
+
+    window.setTimeout(() => {
+      window.location.reload();
+    }, 300);
   };
 
   const [fileImage, setFileImage] = useState('');

@@ -170,6 +170,32 @@ export const chatSlice = createSlice({
       state.channel.isLoading = false;
       state.channel.error = action.payload;
     },
+    /* 채널 생성 */
+    [__createChannel.pending]: (state) => {
+      state.channel.isLoading = true;
+    },
+    [__createChannel.fulfilled]: (state, action) => {
+      console.log('lets do it');
+      state.channel.isLoading = false;
+      window.location.reload();
+    },
+    [__createChannel.rejected]: (state, action) => {
+      console.log('hmm..');
+      state.channel.isLoading = false;
+      window.location.reload();
+    },
+    /* 채널 나가기 */
+    [__exitChannel.pending]: (state) => {
+      state.channel.isLoading = true;
+    },
+    [__exitChannel.fulfilled]: (state, action) => {
+      state.channel.isLoading = false;
+      window.location.reload();
+    },
+    [__exitChannel.rejected]: (state, action) => {
+      state.channel.isLoading = false;
+      window.location.reload();
+    },
   },
 });
 

@@ -12,13 +12,15 @@
 }
 
 .img {
-  width: 150px;
-  height: 150px;
-  margin-top: 40px;
+  width: 170px;
+  height: 170px;
+  margin-top: 25px;
   margin-left: 225px;
   border-radius: 80px;
-  background-color: var(--color-bg);
+
   text-align: center;
+
+  background-size: 100%;
 }
 
 .imgBtn {

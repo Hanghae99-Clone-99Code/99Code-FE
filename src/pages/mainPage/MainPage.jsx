@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Layout from '../../components/common/layout/Layout';
-import React from 'react';
+
 import MyPage from '../../components/myPage/MyPage';
 import Option from '../../components/option/Option';
 import styles from './MainPage.module.css';
@@ -74,9 +74,6 @@ export default function MainPage() {
           )}
         </div>
       </Layout>
-      <Option></Option>
-
-      <MyPage></MyPage>
     </>
   );
 }

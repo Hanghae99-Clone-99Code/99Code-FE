@@ -11,22 +11,22 @@ create-react-app
 ### 사용한 라이브러리
 
 ```
-Redux-Toolkit
+Redux-Toolkit 1.8.6
 - yarn add react-redux @reduxjs/toolkit
-React-Router-Dom
+React-Router-Dom 6.4.2
 - yarn add react-router-dom
 
-SockJS-Client
+SockJS-Client 1.6.1
 - yarn add sockjs-client
-StompJS
+StompJS 2.3.3
 - yarn add stompjs
 
-Axios
+Axios 1.1.3
 - yarn add axios
-Lodash
+Lodash 4.17.21
 - yarn add lodash
 
-FontAwesome
+FontAwesome 6.2.0
 - yarn add @fortawesome/fontawesome-free
 - import '@fortawesome/fontawesome-free/js/all.js' in index.js
 ```

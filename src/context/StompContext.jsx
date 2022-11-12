@@ -13,11 +13,7 @@ export function StompProvider({ children }) {
   function init() {
     console.log('Lets try connect!');
     let sock = new SockJS('https://code99-dev.pyuri.dev/ws/chat');
-    //stomp_client = Stomp.over(sock);
     setStompClient(Stomp.over(sock));
-    // stomp_client.debug = null;
-    //stomp_client.connect({}, onConnected, onError); // First arg is Header
-    //stompClient.connect({}, onConnected, onError); // First arg is Header
   }
 
   const onConnected = () => {
@@ -42,7 +38,7 @@ export function StompProvider({ children }) {
       }
     };
   }, []);
-  
+
   useEffect(() => {
     if (stompClient) stompClient.connect({}, onConnected, onError); // First arg is Header
   }, [stompClient]);

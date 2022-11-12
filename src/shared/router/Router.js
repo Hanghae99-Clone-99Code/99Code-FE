@@ -4,6 +4,7 @@ import PrivateRoute from './PrivateRoute';
 import MainPage from '../../pages/mainPage/MainPage';
 import ChatPage from '../../pages/chatPage/ChatPage';
 import InvitePage from '../../pages/invitePage/InvitePage';
+import Temp from '../../components/temp/Temp';
 import Mode from '../../components/option/mode/Mode';
 
 const Router = () => {
@@ -11,6 +12,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<MainPage />} />
+        <Route path='/temp' element={<Temp />} />
 
         <Route element={<PrivateRoute />}>
           <Route path='/channel/:id' element={<ChatPage />} />
